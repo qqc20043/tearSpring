@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchen.mapper.ThemeMapper">
+
+    <resultMap id="BaseResultMap" type="com.guchen.pojo.Theme">
+            <id property="id" column="id" />
+            <result property="name" column="name" />
+            <result property="subtitle" column="subtitle" />
+            <result property="description" column="description" />
+            <result property="coverImage" column="cover_image" />
+            <result property="coverEmoji" column="cover_emoji" />
+            <result property="productCount" column="product_count" />
+            <result property="teaTypes" column="tea_types" />
+            <result property="minPrice" column="min_price" />
+            <result property="maxPrice" column="max_price" />
+            <result property="viewCount" column="view_count" />
+            <result property="likeCount" column="like_count" />
+            <result property="status" column="status" />
+            <result property="sortOrder" column="sort_order" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+            <result property="rating" column="rating" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,subtitle,description,cover_image,cover_emoji,
+        product_count,tea_types,min_price,max_price,view_count,
+        like_count,status,sort_order,created_at,updated_at,rating
+    </sql>
+</mapper>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchen.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.guchen.pojo.User">
+            <id property="id" column="id" />
+            <result property="username" column="username" />
+            <result property="phone" column="phone" />
+            <result property="email" column="email" />
+            <result property="password" column="password" />
+            <result property="nickname" column="nickname" />
+            <result property="avatar" column="avatar" />
+            <result property="avatarEmoji" column="avatar_emoji" />
+            <result property="gender" column="gender" />
+            <result property="birthday" column="birthday" />
+            <result property="vipLevel" column="vip_level" />
+            <result property="teaAge" column="tea_age" />
+            <result property="totalPoints" column="total_points" />
+            <result property="status" column="status" />
+            <result property="lastLoginTime" column="last_login_time" />
+            <result property="lastLoginIp" column="last_login_ip" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,username,phone,email,password,nickname,
+        avatar,avatar_emoji,gender,birthday,vip_level,
+        tea_age,total_points,status,last_login_time,
+        last_login_ip,created_at,updated_at
+    </sql>
+</mapper>

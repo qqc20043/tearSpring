@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchen.mapper.ProductMapper">
+
+    <resultMap id="BaseResultMap" type="com.guchen.pojo.Product">
+            <id property="id" column="id" />
+            <result property="categoryId" column="category_id" />
+            <result property="shopId" column="shop_id" />
+            <result property="name" column="name" />
+            <result property="subtitle" column="subtitle" />
+            <result property="description" column="description" />
+            <result property="tastingNotes" column="tasting_notes" />
+            <result property="year" column="year" />
+            <result property="craft" column="craft" />
+            <result property="origin" column="origin" />
+            <result property="originDetail" column="origin_detail" />
+            <result property="spec" column="spec" />
+            <result property="price" column="price" />
+            <result property="originalPrice" column="original_price" />
+            <result property="stock" column="stock" />
+            <result property="sales" column="sales" />
+            <result property="rating" column="rating" />
+            <result property="emoji" column="emoji" />
+            <result property="isNew" column="is_new" />
+            <result property="isHot" column="is_hot" />
+            <result property="status" column="status" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,category_id,shop_id,name,subtitle,description,
+        tasting_notes,year,craft,origin,origin_detail,
+        spec,price,original_price,stock,sales,
+        rating,emoji,is_new,is_hot,status,
+        created_at,updated_at
+    </sql>
+</mapper>

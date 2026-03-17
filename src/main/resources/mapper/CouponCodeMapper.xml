@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchen.mapper.CouponCodeMapper">
+
+    <resultMap id="BaseResultMap" type="com.guchen.pojo.CouponCode">
+            <id property="id" column="id" />
+            <result property="couponId" column="coupon_id" />
+            <result property="code" column="code" />
+            <result property="password" column="password" />
+            <result property="batchNo" column="batch_no" />
+            <result property="value" column="value" />
+            <result property="type" column="type" />
+            <result property="themeId" column="theme_id" />
+            <result property="themeName" column="theme_name" />
+            <result property="isExclusive" column="is_exclusive" />
+            <result property="status" column="status" />
+            <result property="userId" column="user_id" />
+            <result property="receivedTime" column="received_time" />
+            <result property="usedTime" column="used_time" />
+            <result property="expireTime" column="expire_time" />
+            <result property="createdAt" column="created_at" />
+            <result property="version" column="version" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,coupon_id,code,password,batch_no,value,
+        type,theme_id,theme_name,is_exclusive,status,
+        user_id,received_time,used_time,expire_time,created_at,version
+    </sql>
+</mapper>

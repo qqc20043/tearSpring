@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchen.mapper.ShopMapper">
+
+    <resultMap id="BaseResultMap" type="com.guchen.pojo.Shop">
+            <id property="id" column="id" />
+            <result property="name" column="name" />
+            <result property="logo" column="logo" />
+            <result property="logoEmoji" column="logo_emoji" />
+            <result property="badge" column="badge" />
+            <result property="description" column="description" />
+            <result property="address" column="address" />
+            <result property="phone" column="phone" />
+            <result property="businessHours" column="business_hours" />
+            <result property="rating" column="rating" />
+            <result property="salesCount" column="sales_count" />
+            <result property="productCount" column="product_count" />
+            <result property="fansCount" column="fans_count" />
+            <result property="status" column="status" />
+            <result property="sortOrder" column="sort_order" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,logo,logo_emoji,badge,description,
+        address,phone,business_hours,rating,sales_count,
+        product_count,fans_count,status,sort_order,created_at,
+        updated_at
+    </sql>
+</mapper>

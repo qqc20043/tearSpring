@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchen.mapper.ThemeProductMapperVO">
+
+    <resultMap id="BaseResultMap" type="com.guchen.pojo.ThemeProductVO">
+            <id property="id" column="id" />
+            <result property="themeId" column="theme_id" />
+            <result property="productId" column="product_id" />
+            <result property="categoryId" column="category_id" />
+            <result property="name" column="name" />
+            <result property="originDetail" column="origin_detail" />
+            <result property="price" column="price" />
+            <result property="stock" column="stock" />
+            <result property="sales" column="sales" />
+            <result property="rating" column="rating" />
+            <result property="emoji" column="emoji" />
+    </resultMap>
+
+    <select id="selectProductTheme" resultMap="BaseResultMap">
+        select d.id, d.theme_id, d.product_id, p.category_id, p.name, p.origin_detail, p.price, p.stock, p.sales, p.rating, p.emoji
+        from theme_product d
+        left join product p on d.product_id = p.id
+        <where>
+            <if test="themeProduct.themeId != null and themeProduct.themeId != ''">
+                 and d.theme_id = #{themeProduct.themeId}
+            </if>
+        </where>;
+    </select>
+    <select id="selectProductThemeList" resultType="com.guchen.pojo.ThemeProductVO">
+        select d.id, d.theme_id, d.product_id, p.category_id, p.name, p.origin_detail, p.price, p.stock, p.sales, p.rating, p.emoji
+        from theme_product d
+        left join product p on d.product_id = p.id;
+    </select>
+
+</mapper>

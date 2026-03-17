@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchen.mapper.VShopProductsMapper">
+
+    <resultMap id="BaseResultMap" type="com.guchen.pojo.VShopProducts">
+            <result property="shopId" column="shop_id" />
+            <result property="shopName" column="shop_name" />
+            <result property="logoEmoji" column="logo_emoji" />
+            <result property="shopBadge" column="shop_badge" />
+            <result property="shopRating" column="shop_rating" />
+            <result property="productId" column="product_id" />
+            <result property="productName" column="product_name" />
+            <result property="subtitle" column="subtitle" />
+            <result property="price" column="price" />
+            <result property="originalPrice" column="original_price" />
+            <result property="emoji" column="emoji" />
+            <result property="sales" column="sales" />
+            <result property="productRating" column="product_rating" />
+            <result property="isNew" column="is_new" />
+            <result property="isHot" column="is_hot" />
+            <result property="categoryId" column="category_id" />
+            <result property="categoryName" column="category_name" />
+            <result property="themeId" column="theme_id" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        shop_id,shop_name,logo_emoji,shop_badge,shop_rating,product_id,
+        product_name,subtitle,price,original_price,emoji,
+        sales,product_rating,is_new,is_hot,category_id,category_name,theme_id
+    </sql>
+</mapper>

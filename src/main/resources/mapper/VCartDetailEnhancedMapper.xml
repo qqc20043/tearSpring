@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchen.mapper.VCartDetailEnhancedMapper">
+
+    <resultMap id="BaseResultMap" type="com.guchen.pojo.VCartDetailEnhanced">
+            <result property="cartItemId" column="cart_item_id" />
+            <result property="cartId" column="cart_id" />
+            <result property="quantity" column="quantity" />
+            <result property="checked" column="checked" />
+            <result property="cartItemCreatedAt" column="cart_item_created_at" />
+            <result property="cartItemUpdatedAt" column="cart_item_updated_at" />
+            <result property="productId" column="product_id" />
+            <result property="productName" column="product_name" />
+            <result property="productSubtitle" column="product_subtitle" />
+            <result property="productEmoji" column="product_emoji" />
+            <result property="specId" column="spec_id" />
+            <result property="specName" column="spec_name" />
+            <result property="specPrice" column="spec_price" />
+            <result property="specOriginalPrice" column="spec_original_price" />
+            <result property="specStock" column="spec_stock" />
+            <result property="specSales" column="spec_sales" />
+            <result property="shopId" column="shop_id" />
+            <result property="shopName" column="shop_name" />
+            <result property="shopEmoji" column="shop_emoji" />
+            <result property="shopBadge" column="shop_badge" />
+            <result property="subtotal" column="subtotal" />
+            <result property="originalSubtotal" column="original_subtotal" />
+            <result property="discountAmount" column="discount_amount" />
+            <result property="stockStatus" column="stock_status" />
+            <result property="shopDisplayName" column="shop_display_name" />
+            <result property="themeId" column="theme_id" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        cart_item_id,cart_id,theme_id,quantity,checked,cart_item_created_at,cart_item_updated_at,
+        product_id,product_name,product_subtitle,product_emoji,spec_id,
+        spec_name,spec_price,spec_original_price,spec_stock,spec_sales,
+        shop_id,shop_name,shop_emoji,shop_badge,subtotal,
+        original_subtotal,discount_amount,stock_status,shop_display_name
+    </sql>
+</mapper>
