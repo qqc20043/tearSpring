@@ -42,7 +42,9 @@ public class CouponCodeServiceImpl extends ServiceImpl<CouponCodeMapper, CouponC
         CouponCode couponCode1 = couponCodeMapper.selectOne(wrapper);
         if(couponCode1 == null) return Result.error("券号输入错误！");
         else if(!couponCode.getPassword().equals(couponCode1.getPassword())) return Result.error("优惠券密码错误！");
-        else if(!couponCode1.getStatus().equals("unclaimed")) return Result.error("此优惠券已被领取！");
+        else if(couponCode1.getStatus().equals("claimed")) return Result.error("此优惠券已被领取！");
+        else if(couponCode1.getStatus().equals("expired")) return Result.error("此优惠券已过期！");
+        else if(couponCode1.getStatus().equals("used")) return Result.error("此优惠券已被用户使用！");
         // 直接从注入的request中获取
         String token = request.getHeader("token");
         Long userId = jwtHelper.getUserId(token);

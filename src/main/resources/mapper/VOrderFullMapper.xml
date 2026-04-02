@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchen.mapper.VOrderFullMapper">
+
+    <resultMap id="BaseResultMap" type="com.guchen.pojo.VOrderFull">
+            <result property="orderId" column="order_id" />
+            <result property="orderNo" column="order_no" />
+            <result property="orderStatus" column="order_status" />
+            <result property="totalAmount" column="total_amount" />
+            <result property="discountAmount" column="discount_amount" />
+            <result property="pointsDiscount" column="points_discount" />
+            <result property="couponDiscount" column="coupon_discount" />
+            <result property="deliveryFee" column="delivery_fee" />
+            <result property="payAmount" column="pay_amount" />
+            <result property="usedPoints" column="used_points" />
+            <result property="orderRemark" column="order_remark" />
+            <result property="deliveryTime" column="delivery_time" />
+            <result property="deliveryMethod" column="delivery_method" />
+            <result property="invoiceType" column="invoice_type" />
+            <result property="paymentMethod" column="payment_method" />
+            <result property="paymentTime" column="payment_time" />
+            <result property="deliveryTimeActual" column="delivery_time_actual" />
+            <result property="receiveTime" column="receive_time" />
+            <result property="cancelReason" column="cancel_reason" />
+            <result property="orderCreatedAt" column="order_created_at" />
+            <result property="orderUpdatedAt" column="order_updated_at" />
+            <result property="userId" column="user_id" />
+            <result property="username" column="username" />
+            <result property="nickname" column="nickname" />
+            <result property="userPhone" column="user_phone" />
+            <result property="userAvatar" column="user_avatar" />
+            <result property="vipLevel" column="vip_level" />
+            <result property="teaAge" column="tea_age" />
+            <result property="addressId" column="address_id" />
+            <result property="receiverName" column="receiver_name" />
+            <result property="receiverPhone" column="receiver_phone" />
+            <result property="addressTag" column="address_tag" />
+            <result property="province" column="province" />
+            <result property="city" column="city" />
+            <result property="district" column="district" />
+            <result property="addressDetail" column="address_detail" />
+            <result property="fullAddress" column="full_address" />
+            <result property="shopId" column="shop_id" />
+            <result property="shopName" column="shop_name" />
+            <result property="shopLogo" column="shop_logo" />
+            <result property="shopBadge" column="shop_badge" />
+            <result property="shopPhone" column="shop_phone" />
+            <result property="shopAddress" column="shop_address" />
+            <result property="productIds" column="product_ids" />
+            <result property="productNames" column="product_names" />
+            <result property="totalQuantity" column="total_quantity" />
+            <result property="totalSubtotal" column="total_subtotal" />
+            <result property="orderItemsJson" column="order_items_json" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        order_id,order_no,order_status,total_amount,discount_amount,points_discount,
+        coupon_discount,delivery_fee,pay_amount,used_points,order_remark,
+        delivery_time,delivery_method,invoice_type,payment_method,payment_time,
+        delivery_time_actual,receive_time,cancel_reason,order_created_at,order_updated_at,
+        user_id,username,nickname,user_phone,user_avatar,
+        vip_level,tea_age,address_id,receiver_name,receiver_phone,
+        address_tag,province,city,district,address_detail,
+        full_address,shop_id,shop_name,shop_logo,shop_badge,
+        shop_phone,shop_address,product_ids,product_names,total_quantity,
+        total_subtotal,order_items_json
+    </sql>
+</mapper>

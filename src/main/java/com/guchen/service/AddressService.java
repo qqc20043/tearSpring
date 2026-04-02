@@ -13,4 +13,5 @@ public interface AddressService extends IService<Address> {
     Result selectAddressI();
     Result addressUpdateInsert(Address address);
     Result addressDelete(Address address);
+    Result addressUpdateIsDefault(Address address);
 }

@@ -4,7 +4,9 @@ import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.guchen.mapper.CartMapper;
+import com.guchen.mapper.VUserProductMapper;
 import com.guchen.pojo.Cart;
+import com.guchen.pojo.VUserProduct;
 import com.guchen.utils.Captchayzm;
 import com.guchen.utils.JwtHelper;
 import com.guchen.utils.MD5Util;
@@ -20,6 +22,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -165,6 +168,23 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         Result result = Result.ok("获取用户数据成功！");
         result.put("userData", userData);
         return result;
+    }
+
+    @Override
+    public Result userDataUpdate(User user) {
+        Long userId = jwtHelper.getUserId(request.getHeader("token"));
+        LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(User::getId, userId);
+        User userData = userMapper.selectOne(wrapper);
+        userData.setAvatarEmoji(user.getAvatarEmoji());
+        userData.setBirthday(user.getBirthday());
+        userData.setGender(user.getGender());
+        userData.setNickname(user.getNickname());
+        userData.setSignature(user.getSignature());
+        userData.setTeaAge(user.getTeaAge() * 365);
+        userData.setUpdatedAt(new Date());
+        userMapper.updateById(userData);
+        return Result.ok("用户数据更新成功");
     }
 }
 

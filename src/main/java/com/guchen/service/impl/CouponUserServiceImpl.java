@@ -53,7 +53,7 @@ public class CouponUserServiceImpl extends ServiceImpl<CouponUserMapper, CouponU
             if(couponUser1.getStatus().equals("claimed")) claimedCount ++;
             else if (couponUser1.getStatus().equals("expired")) expiredCount ++;
         }
-        unusedCount = claimedCount - expiredCount;
+        unusedCount = claimedCount;
         map.put("couponUserList", couponUserList);
         map.put("claimedCount", claimedCount);
         map.put("unusedCount", unusedCount);

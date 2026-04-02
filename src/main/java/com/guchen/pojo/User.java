@@ -73,7 +73,7 @@ public class User {
      * 生日
      */
     @TableField(value = "birthday")
-    private Date birthday;
+    private String birthday;
 
     /**
      * 会员等级 0-普通 1-青铜 2-白银 3-黄金
@@ -122,4 +122,10 @@ public class User {
      */
     @TableField(value = "updated_at")
     private Date updatedAt;
+
+    /**
+     * 个性标签
+     */
+    @TableField(value = "signature")
+    private String signature;
 }

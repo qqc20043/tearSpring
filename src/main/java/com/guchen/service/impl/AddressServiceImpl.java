@@ -74,12 +74,30 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper, Address>
 
     @Override
     public Result addressDelete(Address address) {
-        LambdaQueryWrapper<Address> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(Address::getUserId, address.getUserId());
-        queryWrapper.eq(Address::getId, address.getId());
-        int n = addressMapper.delete(queryWrapper);
+        int n = addressMapper.deleteById(address.getId());
         if(n < 0) return Result.error("数据库中没有这条数据！");
         return Result.ok("删除用户地址成功！");
+    }
+
+    @Override
+    public Result addressUpdateIsDefault(Address address) {
+        Long userId = jwtHelper.getUserId(request.getHeader("token"));
+        LambdaUpdateWrapper<Address> wrapper = new LambdaUpdateWrapper<>();
+        wrapper.eq(Address::getUserId, userId);
+        List<Address> addressList = addressMapper.selectList(wrapper);
+        if(!addressList.isEmpty()) {
+            for(Address address2 : addressList) {
+                address2.setIsDefault(0);
+                addressMapper.updateById(address2);
+            }
+        }
+        LambdaUpdateWrapper<Address> wrapper1 = new LambdaUpdateWrapper<>();
+        wrapper1.eq(Address::getId, address.getId());
+        Address address1 = addressMapper.selectOne(wrapper1);
+        address1.setIsDefault(1);
+        address1.setUpdatedAt(new Date());
+        addressMapper.update(address1, wrapper1);
+        return Result.ok("默认地址确定成功！");
     }
 }
 

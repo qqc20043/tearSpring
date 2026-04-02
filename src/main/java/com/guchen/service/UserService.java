@@ -22,4 +22,6 @@ public interface UserService extends IService<User> {
     Result yzmcap(Captchayzm captchayzm);
 
     Result selectUserData();
+
+    Result userDataUpdate(User user);
 }

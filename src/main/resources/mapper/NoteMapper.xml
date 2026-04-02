@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchen.mapper.NoteMapper">
+
+    <resultMap id="BaseResultMap" type="com.guchen.pojo.Note">
+            <id property="id" column="id" />
+            <result property="userId" column="user_id" />
+            <result property="title" column="title" />
+            <result property="teaName" column="tea_name" />
+            <result property="teaId" column="tea_id" />
+            <result property="content" column="content" />
+            <result property="rating" column="rating" />
+            <result property="imageUrl" column="image_url" />
+            <result property="isPublic" column="is_public" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,title,tea_name,tea_id,content,
+        rating,image_url,is_public,created_at,updated_at
+    </sql>
+</mapper>

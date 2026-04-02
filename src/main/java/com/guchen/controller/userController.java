@@ -1,14 +1,13 @@
 package com.guchen.controller;
 
 import com.guchen.pojo.Address;
-import com.guchen.service.AddressService;
-import com.guchen.service.UserBalanceService;
+import com.guchen.pojo.Note;
+import com.guchen.service.*;
 import com.guchen.utils.Captchayzm;
 import com.guchen.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.guchen.pojo.User;
-import com.guchen.service.UserService;
 
 @RestController
 @RequestMapping("user")
@@ -23,6 +22,12 @@ public class userController {
 
     @Autowired
     AddressService addressService;
+
+    @Autowired
+    NoteService noteService;
+
+    @Autowired
+    VUserProductService vUserProductService;
 
     @PostMapping("login")
     public Result login(@RequestBody User user) {
@@ -62,6 +67,12 @@ public class userController {
         return result;
     }
 
+    @PostMapping("userDataUpdate")
+    public Result userDataUpdate(@RequestBody User user) {
+        Result result = userService.userDataUpdate(user);
+        return result;
+    }
+
     @GetMapping("balanceI")
     public Result balanceI() {
         Result result = userBalanceService.selectBalanceI();
@@ -80,9 +91,39 @@ public class userController {
         return result;
     }
 
-    @PostMapping("addressDelete")
+    @PostMapping("addressUpdateIsDefault")
+    public Result addressUpdateIsDefault(@RequestBody Address address) {
+        Result result = addressService.addressUpdateIsDefault(address);
+        return result;
+    }
+
+    @DeleteMapping("addressDelete")
     public Result addressDelete(@RequestBody Address address) {
         Result result = addressService.addressDelete(address);
+        return result;
+    }
+
+    @GetMapping("noteI")
+    public Result noteI() {
+        Result result = noteService.selectNoteI();
+        return result;
+    }
+
+    @PostMapping("noteUpdateInsert")
+    public Result noteUpdate(@RequestBody Note note) {
+        Result result = noteService.noteUpdateInsert(note);
+        return result;
+    }
+
+    @DeleteMapping("noteDelete")
+    public Result noteDelete(@RequestBody Note note) {
+        Result result = noteService.noteDelete(note);
+        return result;
+    }
+
+    @GetMapping("productCategory")
+    public Result productCategory() {
+        Result result = vUserProductService.selectProductCategory();
         return result;
     }
 }
