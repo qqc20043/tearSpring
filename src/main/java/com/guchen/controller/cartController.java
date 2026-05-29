@@ -37,7 +37,7 @@ public class cartController {
         return result;
     }
 
-    @PostMapping("delAllCartItem")
+    @DeleteMapping("delAllCartItem")
     public Result delAllCartItem() {
         Result result = cartItemService.delAllCartItem();
         return result;
