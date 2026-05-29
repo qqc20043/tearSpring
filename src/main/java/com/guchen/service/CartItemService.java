@@ -12,4 +12,5 @@ import com.guchen.utils.Result;
 public interface CartItemService extends IService<CartItem> {
     Result delCartItemOne(CartItem cartItem);
     Result insertCartItemOne(CartItem cartItem);
+    Result delAllCartItem();
 }

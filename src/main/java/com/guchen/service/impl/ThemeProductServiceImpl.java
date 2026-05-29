@@ -30,7 +30,6 @@ public class ThemeProductServiceImpl extends ServiceImpl<ThemeProductMapper, The
     @Override
     public Result selectTheme(ThemeProduct id) {
         List<ThemeProductVO> themeProductIdList = themeProductMapperVO.selectProductTheme(id);
-        System.out.println("themeProductIdList" + themeProductIdList);
         Map<String, Object> map = new HashMap<>();
         map.put("themeProductIdList", themeProductIdList);
         Result result = Result.ok("主题茶叶单个主题获取成功");

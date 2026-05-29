@@ -94,8 +94,10 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper, Address>
         LambdaUpdateWrapper<Address> wrapper1 = new LambdaUpdateWrapper<>();
         wrapper1.eq(Address::getId, address.getId());
         Address address1 = addressMapper.selectOne(wrapper1);
-        address1.setIsDefault(1);
-        address1.setUpdatedAt(new Date());
+        if(address1 != null) {
+            address1.setIsDefault(1);
+            address1.setUpdatedAt(new Date());
+        }
         addressMapper.update(address1, wrapper1);
         return Result.ok("默认地址确定成功！");
     }

@@ -2,6 +2,7 @@ package com.guchen.service;
 
 import com.guchen.pojo.VOrderFull;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.guchen.utils.Result;
 
 /**
 * @author Administrator
@@ -9,5 +10,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 * @createDate 2026-04-02 14:42:56
 */
 public interface VOrderFullService extends IService<VOrderFull> {
-
+    Result selectVOrderData();
 }

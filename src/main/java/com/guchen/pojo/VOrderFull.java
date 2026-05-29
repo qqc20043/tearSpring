@@ -18,7 +18,7 @@ public class VOrderFull {
     /**
      * 订单ID
      */
-    @TableField(value = "order_id")
+    @TableId(type = IdType.AUTO)
     private Long orderId;
 
     /**

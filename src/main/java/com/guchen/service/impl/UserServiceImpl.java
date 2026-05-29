@@ -59,17 +59,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     @Override
     public Result login(User user) {
         // 判断验证码是否正确
-//        if (yzmcodinfo == null) return Result.error("验证码已失效");
-//        if (!yzmcodinfo.equals(yzmcode)) {
-//            return Result.error("验证码不正确");
-//        }
+        if (yzmcode == null) return Result.error("验证码已失效");
+        if (!yzmcodinfo.equals(yzmcode)) {
+            return Result.error("验证码不正确");
+        }
         // 根据账号查询用户
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(User::getPhone, user.getPhone());
         User user1 = baseMapper.selectOne(wrapper);
         // 判断账号是否存在
         if (user1 == null) return Result.error("账号错误");
-        System.out.println("登录角色：" + user1.getUsername());
         // 判断密码
         if (user.getPassword() != null && user1.getPassword().equals(MD5Util.encrypt(user.getPassword()))) {
             // 根据用户生成token
@@ -95,7 +94,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         if (count > 0) return Result.error("用户已存在");
         // 加密用户密码
         user.setPassword(MD5Util.encrypt(user.getPassword()));
-        System.out.println("加密后的密码=" + user.getPassword());
         // 插入用户
         int rows = userMapper.insert(user);
         // 插入购物车
@@ -107,7 +105,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         cart.setCreatedAt(new Date());
         cart.setUpdatedAt(new Date());
         cartMapper.insert(cart);
-        System.out.println("rows = " + rows);
         return Result.ok("用户注册成功");
     }
 
@@ -144,7 +141,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         map.put("uuid", uuid);
         map.put("code", code);
         map.put("captcha", specCaptcha.toBase64());
-        System.out.println("code="+code);
         yzmcode = code;
         return (Result) Result.ok("验证码生成成功").put("yzm", map);
     }
@@ -153,8 +149,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     public Result yzmcap(Captchayzm captchayzm) {
         yzmuid = captchayzm.getUseruid();
 //        System.out.println("前端传来的uid: " + yzmuid);
-        yzmcodinfo = this.stringRedisTemplate.opsForValue().get(yzmuid);
-//        System.out.println("根据uid在redis中获取的验证码: " + yzmcodinfo);
+        yzmcode = this.stringRedisTemplate.opsForValue().get(yzmuid);
+        yzmcode = yzmcode.toLowerCase();
+        yzmcodinfo = captchayzm.getUseryzm().toLowerCase();
+//        System.out.println("根据uid在redis中获取的验证码: " + yzmcode);
         return Result.ok("成功接收验证码");
     }
 
@@ -176,14 +174,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(User::getId, userId);
         User userData = userMapper.selectOne(wrapper);
-        userData.setAvatarEmoji(user.getAvatarEmoji());
-        userData.setBirthday(user.getBirthday());
-        userData.setGender(user.getGender());
-        userData.setNickname(user.getNickname());
-        userData.setSignature(user.getSignature());
-        userData.setTeaAge(user.getTeaAge() * 365);
-        userData.setUpdatedAt(new Date());
-        userMapper.updateById(userData);
+        if(userData != null) {
+            userData.setAvatarEmoji(user.getAvatarEmoji());
+            userData.setBirthday(user.getBirthday());
+            userData.setGender(user.getGender());
+            userData.setNickname(user.getNickname());
+            userData.setSignature(user.getSignature());
+            userData.setTeaAge(user.getTeaAge() * 365);
+            userData.setUpdatedAt(new Date());
+            userMapper.updateById(userData);
+        }
         return Result.ok("用户数据更新成功");
     }
 }

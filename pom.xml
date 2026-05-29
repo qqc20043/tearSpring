@@ -37,23 +37,11 @@
             <scope>test</scope>
         </dependency>
 
-        <!--jwt-->
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.9.1</version>
-        </dependency>
-
         <!--mybatis-plus-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.5.3.1</version>  <!-- 使用最新稳定版本 -->
-        </dependency>
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.0</version>
         </dependency>
 
         <!-- 验证码 -->
@@ -111,18 +99,8 @@
         <!-- 文字识别 -->
         <dependency>
             <groupId>com.tencentcloudapi</groupId>
-            <artifactId>tencentcloud-sdk-java</artifactId>
-            <version>4.0.11</version>
-        </dependency>
-        <dependency>
-            <groupId>com.tencentcloudapi</groupId>
-            <artifactId>tencentcloud-sdk-java-common</artifactId>
-            <version>3.1.1044</version>
-        </dependency>
-        <dependency>
-            <groupId>com.tencentcloudapi</groupId>
             <artifactId>tencentcloud-sdk-java-ocr</artifactId>
-            <version>3.1.1044</version>
+            <version>3.1.1442</version>  <!-- 使用最新的稳定版本 -->
         </dependency>
 
         <!-- 日志功能 -->
@@ -196,8 +174,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.guchen.tearspring.TearSpringApplication</mainClass>
-                    <skip>true</skip>
+                    <mainClass>com.guchen.TearSpringApplication</mainClass>
+                    <skip>false</skip>
                 </configuration>
                 <executions>
                     <execution>

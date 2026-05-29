@@ -36,4 +36,10 @@ public class cartController {
         Result result = cartItemService.insertCartItemOne(cartItem);
         return result;
     }
+
+    @PostMapping("delAllCartItem")
+    public Result delAllCartItem() {
+        Result result = cartItemService.delAllCartItem();
+        return result;
+    }
 }

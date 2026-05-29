@@ -69,12 +69,29 @@ public class CartItemServiceImpl extends ServiceImpl<CartItemMapper, CartItem>
                 .eq(CartItem::getProductId, cartItem.getProductId())
                 .eq(CartItem::getSpecId, cartItem.getSpecId());
         CartItem cartItem1 = cartItemMapper.selectOne(queryWrapper1);
+//        System.out.println("================================");
+//        System.out.println("cartItem1 = " + cartItem1);
         if(cartItem1 == null) cartItemMapper.insert(cartItem);
         else {
             cartItem.setId(cartItem1.getId());
             cartItemMapper.updateById(cartItem);
         }
         return Result.ok("购物车更新商品成功！");
+    }
+
+    @Override
+    public Result delAllCartItem() {
+        Long userId = jwtHelper.getUserId(request.getHeader("token"));
+        LambdaQueryWrapper<Cart> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Cart::getUserId, userId);
+        Cart cart = cartMapper.selectOne(queryWrapper);
+        Long cartId = cart.getId();
+        LambdaQueryWrapper<CartItem> queryWrapper1 = new LambdaQueryWrapper<>();
+        queryWrapper1.eq(CartItem::getCartId, cartId);
+        int n = cartItemMapper.delete(queryWrapper1);
+        System.out.println("======================================================:" + n);
+        if(n < 0) return Result.error("数据库中没有这条数据！");
+        return Result.ok("将商品从购物车移除成功！");
     }
 }
 
