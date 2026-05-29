@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchen.mapper.VUserCouponMapper">
+
+    <resultMap id="BaseResultMap" type="com.guchen.pojo.VUserCoupon">
+            <result property="userId" column="user_id" />
+            <result property="username" column="username" />
+            <result property="nickname" column="nickname" />
+            <result property="userAvatar" column="user_avatar" />
+            <result property="vipLevel" column="vip_level" />
+            <result property="userCouponId" column="user_coupon_id" />
+            <result property="couponCodeId" column="coupon_code_id" />
+            <result property="couponCode" column="coupon_code" />
+            <result property="couponStatus" column="coupon_status" />
+            <result property="receivedTime" column="received_time" />
+            <result property="usedTime" column="used_time" />
+            <result property="expireTime" column="expire_time" />
+            <result property="couponId" column="coupon_id" />
+            <result property="couponName" column="coupon_name" />
+            <result property="couponType" column="coupon_type" />
+            <result property="couponValue" column="coupon_value" />
+            <result property="couponCondition" column="coupon_condition" />
+            <result property="minOrderAmount" column="min_order_amount" />
+            <result property="maxDiscount" column="max_discount" />
+            <result property="isExclusive" column="is_exclusive" />
+            <result property="themeId" column="theme_id" />
+            <result property="themeName" column="theme_name" />
+            <result property="themeSubtitle" column="theme_subtitle" />
+            <result property="themeEmoji" column="theme_emoji" />
+            <result property="availableStatus" column="available_status" />
+            <result property="daysRemaining" column="days_remaining" />
+            <result property="couponDescription" column="coupon_description" />
+            <result property="couponDisplayName" column="coupon_display_name" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        user_id,username,nickname,user_avatar,vip_level,user_coupon_id,
+        coupon_code_id,coupon_code,coupon_status,received_time,used_time,
+        expire_time,coupon_id,coupon_name,coupon_type,coupon_value,
+        coupon_condition,min_order_amount,max_discount,is_exclusive,theme_id,
+        theme_name,theme_subtitle,theme_emoji,available_status,days_remaining,
+        coupon_description,coupon_display_name
+    </sql>
+</mapper>

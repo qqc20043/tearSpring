@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchen.mapper.OrderMapper">
+
+    <resultMap id="BaseResultMap" type="com.guchen.pojo.Order">
+            <id property="id" column="id" />
+            <result property="orderNo" column="order_no" />
+            <result property="userId" column="user_id" />
+            <result property="addressId" column="address_id" />
+            <result property="shopId" column="shop_id" />
+            <result property="shopName" column="shop_name" />
+            <result property="shopBadge" column="shop_badge" />
+            <result property="status" column="status" />
+            <result property="totalAmount" column="total_amount" />
+            <result property="discountAmount" column="discount_amount" />
+            <result property="pointsDiscount" column="points_discount" />
+            <result property="couponDiscount" column="coupon_discount" />
+            <result property="deliveryFee" column="delivery_fee" />
+            <result property="payAmount" column="pay_amount" />
+            <result property="couponId" column="coupon_id" />
+            <result property="usedPoints" column="used_points" />
+            <result property="remark" column="remark" />
+            <result property="deliveryTime" column="delivery_time" />
+            <result property="deliveryMethod" column="delivery_method" />
+            <result property="invoiceType" column="invoice_type" />
+            <result property="paymentMethod" column="payment_method" />
+            <result property="paymentTime" column="payment_time" />
+            <result property="deliveryTimeActual" column="delivery_time_actual" />
+            <result property="receiveTime" column="receive_time" />
+            <result property="cancelReason" column="cancel_reason" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,order_no,user_id,address_id,shop_id,shop_name,
+        shop_badge,status,total_amount,discount_amount,points_discount,
+        coupon_discount,delivery_fee,pay_amount,coupon_id,used_points,
+        remark,delivery_time,delivery_method,invoice_type,payment_method,
+        payment_time,delivery_time_actual,receive_time,cancel_reason,created_at,
+        updated_at
+    </sql>
+</mapper>

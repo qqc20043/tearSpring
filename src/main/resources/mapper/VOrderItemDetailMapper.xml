@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchen.mapper.VOrderItemDetailMapper">
+
+    <resultMap id="BaseResultMap" type="com.guchen.pojo.VOrderItemDetail">
+            <result property="orderId" column="order_id" />
+            <result property="orderNo" column="order_no" />
+            <result property="orderStatus" column="order_status" />
+            <result property="totalAmount" column="total_amount" />
+            <result property="discountAmount" column="discount_amount" />
+            <result property="pointsDiscount" column="points_discount" />
+            <result property="couponDiscount" column="coupon_discount" />
+            <result property="deliveryFee" column="delivery_fee" />
+            <result property="payAmount" column="pay_amount" />
+            <result property="paymentMethod" column="payment_method" />
+            <result property="paymentTime" column="payment_time" />
+            <result property="orderCreatedAt" column="order_created_at" />
+            <result property="userId" column="user_id" />
+            <result property="nickname" column="nickname" />
+            <result property="userPhone" column="user_phone" />
+            <result property="receiverName" column="receiver_name" />
+            <result property="receiverPhone" column="receiver_phone" />
+            <result property="fullAddress" column="full_address" />
+            <result property="shopId" column="shop_id" />
+            <result property="shopName" column="shop_name" />
+            <result property="shopBadge" column="shop_badge" />
+            <result property="orderItemId" column="order_item_id" />
+            <result property="productId" column="product_id" />
+            <result property="productName" column="product_name" />
+            <result property="productSpec" column="product_spec" />
+            <result property="orderItemEmoji" column="order_item_emoji" />
+            <result property="unitPrice" column="unit_price" />
+            <result property="quantity" column="quantity" />
+            <result property="subtotal" column="subtotal" />
+            <result property="currentPrice" column="current_price" />
+            <result property="originalPrice" column="original_price" />
+            <result property="currentStock" column="current_stock" />
+            <result property="totalSales" column="total_sales" />
+            <result property="productRating" column="product_rating" />
+            <result property="productEmoji" column="product_emoji" />
+            <result property="isNew" column="is_new" />
+            <result property="isHot" column="is_hot" />
+            <result property="tastingNotes" column="tasting_notes" />
+            <result property="year" column="year" />
+            <result property="craft" column="craft" />
+            <result property="origin" column="origin" />
+            <result property="originDetail" column="origin_detail" />
+            <result property="specId" column="spec_id" />
+            <result property="currentSpecName" column="current_spec_name" />
+            <result property="currentSpecPrice" column="current_spec_price" />
+            <result property="currentSpecStock" column="current_spec_stock" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        order_id,order_no,order_status,total_amount,discount_amount,points_discount,
+        coupon_discount,delivery_fee,pay_amount,payment_method,payment_time,
+        order_created_at,user_id,nickname,user_phone,receiver_name,
+        receiver_phone,full_address,shop_id,shop_name,shop_badge,
+        order_item_id,product_id,product_name,product_spec,order_item_emoji,
+        unit_price,quantity,subtotal,current_price,original_price,
+        current_stock,total_sales,product_rating,product_emoji,is_new,
+        is_hot,tasting_notes,year,craft,origin,
+        origin_detail,spec_id,current_spec_name,current_spec_price,current_spec_stock
+    </sql>
+</mapper>
