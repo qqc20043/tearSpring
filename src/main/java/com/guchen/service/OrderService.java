@@ -11,4 +11,10 @@ import com.guchen.utils.Result;
 */
 public interface OrderService extends IService<Order> {
     Result insertOrderData(Order order);
+
+    /**
+     * 取消订单：把订单状态置为 cancelled 并记录原因。
+     * 仅允许取消「本人的、且尚未发货的」订单（unpaid / unship）。
+     */
+    Result cancelOrder(Long orderId, String reason);
 }
