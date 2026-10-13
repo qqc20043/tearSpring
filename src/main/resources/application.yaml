@@ -38,13 +38,15 @@ mybatis-plus:
   global-config:
     db-config:
       logic-delete-field: isvalid # 逻辑删除字段
-      id-type: auto #???????
+      id-type: auto # 主键自增
       logic-delete-value: "N"  # 逻辑已删除默认值
       logic-not-delete-value: "Y"  # 逻辑未删除默认值
 
 
-#jwt??
+#jwt 配置
 jwt:
   token:
-    tokenExpiration: 120 #????,????
-    tokenSignKey: dev-only-change-me  #???????? ???
+    tokenExpiration: 120  # 有效期（分钟）
+    # 签名密钥必须由环境变量注入：硬编码进仓库等于公开，任何人都能据此伪造 token。
+    # 生产部署务必设置 JWT_TOKEN_KEY（建议 32 位以上随机串）。
+    tokenSignKey: ${JWT_TOKEN_KEY:dev-only-change-me}
